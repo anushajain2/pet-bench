@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "reference_config": "campaign_config.json",
+  "strategies": ["Random", "Nearest sequence", "AI greedy", "AI uncertainty", "AI diversity", "AI explore"],
+  "scenarios": ["random_start", "group_shift"],
+  "anchor_rule": "Every sequence group with at least 16 measured proteins and at least 48 measured proteins outside it; 50 starts per eligible group; equal weight per anchor group.",
+  "primary_metric": "new_hits",
+  "secondary_metric": "new_hit_groups",
+  "threshold_rule": "Full original task 90th percentile, evaluator only, ties included. Same threshold in both scenarios.",
+  "ablation_rule": "Prediction-only; mean plus beta=1 bootstrap standard deviation; mean-rank plus weight=0.25 diversity-rank; existing combined rule. No parameter search.",
+  "diagnostic_rule": "At the first shared decision only: correlation of bootstrap spread with absolute log1p error across all untested candidates; and error by uncertainty quartile. Diagnostic outcomes never enter a policy.",
+  "scope": "Exploratory robustness and ablation extension after inspecting the original campaign results. Sequence groups are 60% identity connected components, not validated biological families. After the first acquired batch, new-group labels may train subsequent batches. Not permanent group holdout or external validation."
+}

@@ -1,0 +1,88 @@
+{
+  "config": {
+    "version": "1.0",
+    "model_key": "esm2_35m",
+    "initial_size": 16,
+    "batch_size": 8,
+    "primary_budget": 40,
+    "max_budget": 64,
+    "n_seeds": 50,
+    "seed_start": 1001,
+    "bootstrap_members": 20,
+    "ridge_alpha": 100.0,
+    "ucb_beta": 1.0,
+    "diversity_weight": 0.25,
+    "hit_quantile": 0.9,
+    "target_hits": 5,
+    "strategies": [
+      "Random",
+      "Nearest sequence",
+      "AI greedy",
+      "AI explore"
+    ],
+    "scope": "Exploratory replay of an already inspected single-study dataset. Policies access only revealed labels. No new enzymes, blind external validation, calibrated uncertainty or industrial performance claim."
+  },
+  "task_labels": {
+    "cool_neutral": "40\u00b0C \u00b7 pH 7.5",
+    "cool_acidic": "40\u00b0C \u00b7 pH 4.5",
+    "warm_neutral": "60\u00b0C \u00b7 pH 7.5"
+  },
+  "data_manifest": {
+    "config_sha256": "21881eaf5970aacf6c419927028577b653f927c6059228252667009ff08c58d6",
+    "source_sha256": "700a78ab17348b0fdff81df5c8e49dc7e410c3bf59e0b69a2cc3f568ade30284",
+    "catalog_sha256": "e69c12bd21733a8f9769ab9febdee7958bc19a8d6f72a1545fbc7ab25e6d8d10",
+    "split_sha256": "0fb5d71749edbcee6d3af92bc4fc155cb034103bbe82fb383326f2a5166d6459",
+    "identity_sha256": "cb86755e8bfec4f83df6831eadbef2d6d7cf192a4c5e129fe858041bd6281f52",
+    "task_sha256": {
+      "cool_neutral": "6018beb80fb7cc9b70005f428b00d534f0d59a42935b461b136cc620458826ee",
+      "cool_acidic": "af9cf800ff0a4e3309ebefc5dcdf3c26d88a34b4a92e0190aac922e5782cfd1a",
+      "warm_neutral": "2137004bd81d91fd46a817ef2e52cbfa5099d182f648150a1b58207639a0443d"
+    },
+    "n_unique_proteins": 211,
+    "n_sequence_groups": 36,
+    "grouping_scope": "Connected components computed on the union of all three tasks, without assay labels.",
+    "missingness": "Only observed assays used per task. Tasks have different populations; no zero imputation.",
+    "scope": "Retrospective single-study benchmark on natural enzyme constructs, not mutation-effect prediction or industrial validation. Warm neutral condition was explored in PET Scout before this extension; this is not a pristine prospective test."
+  },
+  "embedding_metadata": {
+    "model_id": "facebook/esm2_t12_35M_UR50D",
+    "label": "ESM-2 35M",
+    "revision": "6fbf070e65b0b7291e7bbcd451118c216cff79d8",
+    "sequence_sha256": "b31553aaca52ab01e5ef6de85bbd6852a2a43dac18657b35891891a66a41f069",
+    "pooling_version": "amino-acid-mask-mean-v1",
+    "shape": [
+      211,
+      480
+    ],
+    "embedding_sha256": "48d9aae803587dad321771b58694fe82b9c1ca21e4005f07f14d6c108efd2441",
+    "device": "cpu",
+    "dtype": "float32",
+    "batch_size": 4,
+    "threads": 4,
+    "loading_seconds": 0.678,
+    "inference_seconds": 6.852,
+    "cpu_seconds": 20.006,
+    "process_peak_rss_gib": 1.035,
+    "cuda_peak_allocated_gib": null,
+    "parameter_count": 33269521,
+    "checkpoint_disk_bytes": 136009889,
+    "created_utc": "2026-10-22T15:09:27.987583+00:00",
+    "hardware": "arm64",
+    "torch_version": "2.14.1",
+    "timing_note": "One measured run, not a hardware benchmark. Loading includes downloads/cache reads. Peak RSS covers the whole process. Models run in separate CLI processes.",
+    "pretraining_note": "Unknown overlap with pretraining sequences; no assay labels used in frozen embeddings."
+  },
+  "config_sha256": "7f38659e25a4a21284294bae5bc9b148ccf37e743b86c0df9f3bfde6aefe6914",
+  "code_sha256": "b782e48486a391318e4f6c018f0195d75054dbf007851c9cab1cb7f041b09aa7",
+  "result_sha256": {
+    "checkpoints.csv": "fa6eebbd35fbf160f8ae0e4aa2ca8ebbe01e8cd487e89f536cae39851582c865",
+    "selections.csv": "ad3c83b4cdf1f500a9c3efd2006e72873a4baff24cb0fc0773efba876020b1d7",
+    "summary.csv": "e46eb06d4d567a9aca0adc1e541b76f95b4d7e021a91a0a72b2071b842dc7894",
+    "paired.csv": "e6072056d729d9e34d59f9f2c6c29f3076f1e015b84c2d245d861b53c1d28da9",
+    "target_times.csv": "733b121af3b21e09088a8e9cea2296e3f75d66d22cdbb86df521794a497482da"
+  },
+  "simulation_seconds": 5.419,
+  "paid_compute_usd": 0,
+  "n_campaigns": 600,
+  "scope": "Exploratory replay of an already inspected single-study dataset. Policies access only revealed labels. No new enzymes, blind external validation, calibrated uncertainty or industrial performance claim."
+}

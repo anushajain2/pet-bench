@@ -1,0 +1,4 @@
+task,label,n_proteins,n_assay_rows,n_groups,largest_group,minimum_training_pool,training_sizes,single_measurement_proteins
+cool_neutral,40°C · pH 7.5,211,288,36,94,117,16;32;64;all,134
+cool_acidic,40°C · pH 4.5,159,222,25,88,71,16;32;64;all,96
+warm_neutral,60°C · pH 7.5,159,236,27,86,73,16;32;64;all,82

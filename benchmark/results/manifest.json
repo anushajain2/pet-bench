@@ -1,0 +1,271 @@
+{
+  "config": {
+    "version": "1.0",
+    "tasks": [
+      {
+        "id": "cool_neutral",
+        "label": "40\u00b0C \u00b7 pH 7.5",
+        "temperature_c": 40,
+        "pH": 7.5,
+        "substrate": "cryPow",
+        "duration_h": 48
+      },
+      {
+        "id": "cool_acidic",
+        "label": "40\u00b0C \u00b7 pH 4.5",
+        "temperature_c": 40,
+        "pH": 4.5,
+        "substrate": "cryPow",
+        "duration_h": 48
+      },
+      {
+        "id": "warm_neutral",
+        "label": "60\u00b0C \u00b7 pH 7.5",
+        "temperature_c": 60,
+        "pH": 7.5,
+        "substrate": "cryPow",
+        "duration_h": 48
+      }
+    ],
+    "models": [
+      {
+        "key": "esm2_35m",
+        "label": "ESM-2 35M",
+        "model_id": "facebook/esm2_t12_35M_UR50D",
+        "family": "esm",
+        "batch_size": 4
+      },
+      {
+        "key": "esm2_150m",
+        "label": "ESM-2 150M",
+        "model_id": "facebook/esm2_t30_150M_UR50D",
+        "family": "esm",
+        "batch_size": 2
+      },
+      {
+        "key": "esm2_650m",
+        "label": "ESM-2 650M",
+        "model_id": "facebook/esm2_t33_650M_UR50D",
+        "family": "esm",
+        "batch_size": 1
+      },
+      {
+        "key": "prott5",
+        "label": "ProtT5-XL encoder",
+        "model_id": "Rostlab/prot_t5_xl_half_uniref50-enc",
+        "family": "t5",
+        "batch_size": 1
+      }
+    ],
+    "identity_threshold": 0.6,
+    "regimes": [
+      "random",
+      "matched",
+      "grouped"
+    ],
+    "n_folds": 5,
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      71
+    ],
+    "training_sizes": [
+      16,
+      32,
+      64,
+      "all"
+    ],
+    "selection_budgets": [
+      1,
+      3,
+      5
+    ],
+    "primary_selection_budget": 5,
+    "ridge_alphas": [
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "inner_folds": 3,
+    "embedding_policy": "Frozen final-layer mean of amino-acid tokens only; float32 on CPU; one representation per sequence reused across tasks. No fine-tuning.",
+    "training_size_policy": "A numeric size is included only if every outer fold across every regime and seed in that task has enough training examples. Subsets are nested and label-independent; all methods receive identical subsets.",
+    "aggregation": "Equal weight per held-out fold, then per partition seed; separate tables for every task, regime and training size. No universal pooled winner.",
+    "scope": "Retrospective single-study benchmark on natural enzyme constructs, not mutation-effect prediction or industrial validation. Warm neutral condition was explored in PET Scout before this extension; this is not a pristine prospective test."
+  },
+  "data_manifest": {
+    "config_sha256": "21881eaf5970aacf6c419927028577b653f927c6059228252667009ff08c58d6",
+    "source_sha256": "700a78ab17348b0fdff81df5c8e49dc7e410c3bf59e0b69a2cc3f568ade30284",
+    "catalog_sha256": "e69c12bd21733a8f9769ab9febdee7958bc19a8d6f72a1545fbc7ab25e6d8d10",
+    "split_sha256": "0fb5d71749edbcee6d3af92bc4fc155cb034103bbe82fb383326f2a5166d6459",
+    "identity_sha256": "cb86755e8bfec4f83df6831eadbef2d6d7cf192a4c5e129fe858041bd6281f52",
+    "task_sha256": {
+      "cool_neutral": "6018beb80fb7cc9b70005f428b00d534f0d59a42935b461b136cc620458826ee",
+      "cool_acidic": "af9cf800ff0a4e3309ebefc5dcdf3c26d88a34b4a92e0190aac922e5782cfd1a",
+      "warm_neutral": "2137004bd81d91fd46a817ef2e52cbfa5099d182f648150a1b58207639a0443d"
+    },
+    "n_unique_proteins": 211,
+    "n_sequence_groups": 36,
+    "grouping_scope": "Connected components computed on the union of all three tasks, without assay labels.",
+    "missingness": "Only observed assays used per task. Tasks have different populations; no zero imputation.",
+    "scope": "Retrospective single-study benchmark on natural enzyme constructs, not mutation-effect prediction or industrial validation. Warm neutral condition was explored in PET Scout before this extension; this is not a pristine prospective test."
+  },
+  "models": [
+    "Nearest sequence",
+    "Composition ridge",
+    "ESM-2 35M",
+    "ESM-2 150M",
+    "ESM-2 650M",
+    "ProtT5-XL encoder"
+  ],
+  "embedding_metadata": {
+    "ESM-2 35M": {
+      "model_id": "facebook/esm2_t12_35M_UR50D",
+      "label": "ESM-2 35M",
+      "revision": "6fbf070e65b0b7291e7bbcd451118c216cff79d8",
+      "sequence_sha256": "b31553aaca52ab01e5ef6de85bbd6852a2a43dac18657b35891891a66a41f069",
+      "pooling_version": "amino-acid-mask-mean-v1",
+      "shape": [
+        211,
+        480
+      ],
+      "embedding_sha256": "48d9aae803587dad321771b58694fe82b9c1ca21e4005f07f14d6c108efd2441",
+      "device": "cpu",
+      "dtype": "float32",
+      "batch_size": 4,
+      "threads": 4,
+      "loading_seconds": 0.678,
+      "inference_seconds": 6.852,
+      "cpu_seconds": 20.006,
+      "process_peak_rss_gib": 1.035,
+      "cuda_peak_allocated_gib": null,
+      "parameter_count": 33269521,
+      "checkpoint_disk_bytes": 136009889,
+      "created_utc": "2026-10-22T15:09:27.987583+00:00",
+      "hardware": "arm64",
+      "torch_version": "2.14.1",
+      "timing_note": "One measured run, not a hardware benchmark. Loading includes downloads/cache reads. Peak RSS covers the whole process. Models run in separate CLI processes.",
+      "pretraining_note": "Unknown overlap with pretraining sequences; no assay labels used in frozen embeddings."
+    },
+    "ESM-2 150M": {
+      "model_id": "facebook/esm2_t30_150M_UR50D",
+      "label": "ESM-2 150M",
+      "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+      "sequence_sha256": "b31553aaca52ab01e5ef6de85bbd6852a2a43dac18657b35891891a66a41f069",
+      "pooling_version": "amino-acid-mask-mean-v1",
+      "shape": [
+        211,
+        640
+      ],
+      "embedding_sha256": "6a1ba34e921710c82b0a619471118258cd73fb358ecd8cc14feda9d747dab14d",
+      "device": "cpu",
+      "dtype": "float32",
+      "batch_size": 2,
+      "threads": 4,
+      "loading_seconds": 76.134,
+      "inference_seconds": 20.804,
+      "cpu_seconds": 64.114,
+      "process_peak_rss_gib": 1.624,
+      "cuda_peak_allocated_gib": null,
+      "parameter_count": 147728601,
+      "checkpoint_disk_bytes": 595258798,
+      "created_utc": "2026-10-22T15:11:08.242748+00:00",
+      "hardware": "arm64",
+      "torch_version": "2.14.1",
+      "timing_note": "One measured run, not a hardware benchmark. Loading includes downloads/cache reads. Peak RSS covers the whole process. Models run in separate CLI processes.",
+      "pretraining_note": "Unknown overlap with pretraining sequences; no assay labels used in frozen embeddings."
+    },
+    "ESM-2 650M": {
+      "model_id": "facebook/esm2_t33_650M_UR50D",
+      "label": "ESM-2 650M",
+      "revision": "08e4846e537177426273712802403f7ba8261b6c",
+      "sequence_sha256": "b31553aaca52ab01e5ef6de85bbd6852a2a43dac18657b35891891a66a41f069",
+      "pooling_version": "amino-acid-mask-mean-v1",
+      "shape": [
+        211,
+        1280
+      ],
+      "embedding_sha256": "8133a0489abcfdb6b554febe3962f04bf6b775e10528bf568a08ec0fb6ce52da",
+      "device": "cpu",
+      "dtype": "float32",
+      "batch_size": 1,
+      "threads": 4,
+      "loading_seconds": 345.279,
+      "inference_seconds": 58.429,
+      "cpu_seconds": 178.372,
+      "process_peak_rss_gib": 3.613,
+      "cuda_peak_allocated_gib": null,
+      "parameter_count": 649400981,
+      "checkpoint_disk_bytes": 2609507429,
+      "created_utc": "2026-10-22T15:17:56.057808+00:00",
+      "hardware": "arm64",
+      "torch_version": "2.14.1",
+      "timing_note": "One measured run, not a hardware benchmark. Loading includes downloads/cache reads. Peak RSS covers the whole process. Models run in separate CLI processes.",
+      "pretraining_note": "Unknown overlap with pretraining sequences; no assay labels used in frozen embeddings."
+    },
+    "ProtT5-XL encoder": {
+      "model_id": "Rostlab/prot_t5_xl_half_uniref50-enc",
+      "label": "ProtT5-XL encoder",
+      "revision": "94a6abc029ae13029317b140b7424e012bf8dfbf",
+      "sequence_sha256": "b31553aaca52ab01e5ef6de85bbd6852a2a43dac18657b35891891a66a41f069",
+      "pooling_version": "amino-acid-mask-mean-v1",
+      "shape": [
+        211,
+        1024
+      ],
+      "embedding_sha256": "e69f9b9b73e232025c46c74d32a38d8456e0d50e9c4810a48e6ccf305cc27754",
+      "device": "cpu",
+      "dtype": "float32",
+      "batch_size": 1,
+      "threads": 4,
+      "loading_seconds": 797.004,
+      "inference_seconds": 99.97,
+      "cpu_seconds": 322.336,
+      "process_peak_rss_gib": 5.649,
+      "cuda_peak_allocated_gib": null,
+      "parameter_count": 1208141824,
+      "checkpoint_disk_bytes": 2752034665,
+      "created_utc": "2026-10-22T15:32:57.153595+00:00",
+      "hardware": "arm64",
+      "torch_version": "2.14.1",
+      "timing_note": "One measured run, not a hardware benchmark. Loading includes downloads/cache reads. Peak RSS covers the whole process. Models run in separate CLI processes.",
+      "pretraining_note": "Unknown overlap with pretraining sequences; no assay labels used in frozen embeddings."
+    }
+  },
+  "n_split_subsets": 900,
+  "n_outer_model_fits": 5400,
+  "n_predictions": 190440,
+  "evaluation_seconds": 49.017,
+  "code_sha256": "2d595c6c39dbfe792b2db84bfbdc07305fe5fd91baf9acb51087cf774cc42342",
+  "result_sha256": {
+    "summary.csv": "324f4a5caf2c5f8bf072a699e79fdb502d854cd348162bc0853033f422ab2402",
+    "predictions.csv": "f5387ee52d02f054033f9a009b39637bec019ebe8566e4328f6df2fa069af6a4",
+    "metrics.csv": "6ad75b91a1c3a71a19c9a316df8d79c1f2e428f0ea12853d743a59a37a7ee3a7",
+    "compute.csv": "2927aa2f6e71a71634cef4305f9e61bb64c727d6c25003b667543c46ddbbd8fc",
+    "fit_timings.csv": "9eca6c2d55f42f04b402511a005f190dc4818c4a7ebc21a287b262b0a5fd37fd",
+    "seed_metrics.csv": "c31986d4cab54ba56962c9624a91403d19525fecf01417ab8441643ddc55be22",
+    "paired_comparison.csv": "fa187c6019846470efb270f1f4f6ba74309b30f97367e828c1e7d3bf3bd60041"
+  },
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "torch": "2.14.1",
+    "transformers": "5.20.2",
+    "sentencepiece": "0.2.2"
+  },
+  "paid_compute_usd": 0,
+  "limitations": [
+    "Exploratory extension of an already inspected published dataset. No blind novelty or mutation-effect claim.",
+    "Task populations differ because some proteins were not measured at every condition.",
+    "Frozen sequence embeddings plus one shared ridge protocol; rankings apply to this pipeline, not every use of each foundation model.",
+    "A large connected group causes uneven held-out pools; matched random controls fold sizes only.",
+    "Each model receives exactly the same examples at each budget. Other-condition labels are not used.",
+    "Mean results weight each test pool equally. Seed ranges describe partition sensitivity, not independent replications or confidence intervals.",
+    "Protein pretraining exposure is unknown; label isolation does not establish pretraining decontamination.",
+    "Single-study, ML-screened, expressed proteins; experimental uncertainty is not fully propagated.",
+    "Compute is one local float32 CPU run per model with different batch sizes, not a standardized hardware throughput benchmark."
+  ]
+}

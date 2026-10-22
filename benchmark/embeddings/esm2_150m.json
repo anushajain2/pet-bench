@@ -1,0 +1,28 @@
+{
+  "model_id": "facebook/esm2_t30_150M_UR50D",
+  "label": "ESM-2 150M",
+  "revision": "a695f6045e2e32885fa60af20c13cb35398ce30c",
+  "sequence_sha256": "b31553aaca52ab01e5ef6de85bbd6852a2a43dac18657b35891891a66a41f069",
+  "pooling_version": "amino-acid-mask-mean-v1",
+  "shape": [
+    211,
+    640
+  ],
+  "embedding_sha256": "6a1ba34e921710c82b0a619471118258cd73fb358ecd8cc14feda9d747dab14d",
+  "device": "cpu",
+  "dtype": "float32",
+  "batch_size": 2,
+  "threads": 4,
+  "loading_seconds": 76.134,
+  "inference_seconds": 20.804,
+  "cpu_seconds": 64.114,
+  "process_peak_rss_gib": 1.624,
+  "cuda_peak_allocated_gib": null,
+  "parameter_count": 147728601,
+  "checkpoint_disk_bytes": 595258798,
+  "created_utc": "2026-10-22T15:11:08.242748+00:00",
+  "hardware": "arm64",
+  "torch_version": "2.14.1",
+  "timing_note": "One measured run, not a hardware benchmark. Loading includes downloads/cache reads. Peak RSS covers the whole process. Models run in separate CLI processes.",
+  "pretraining_note": "Unknown overlap with pretraining sequences; no assay labels used in frozen embeddings."
+}

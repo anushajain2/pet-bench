@@ -1,0 +1,13 @@
+{
+  "condition": {"temperature_c": 60, "pH": 7.5, "substrate": "cryPow", "duration_h": 48},
+  "model": "facebook/esm2_t12_35M_UR50D",
+  "identity_threshold": 0.6,
+  "n_folds": 5,
+  "seeds": [11, 23, 37, 51, 71],
+  "budgets": [1, 3, 5],
+  "ridge_alphas": [10.0, 100.0, 1000.0],
+  "random_draws": 1000,
+  "primary_metric": "mean measured activity of top-5 candidates within each held-out fold",
+  "condition_rationale": "60 C directly addresses warm operation; pH 7.5 and cryPow are preselected neutral-ish pH and crystalline substrate. No model results used for condition choice.",
+  "notes": "ESM-2 is frozen. Grouped inner validation follows the outer grouping policy. Random and grouped outer folds may have different sizes; report size and normalize selection against same-fold random and oracle. Split variation is not a confidence interval."
+}

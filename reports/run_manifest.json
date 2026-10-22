@@ -1,0 +1,112 @@
+{
+  "evaluation_seconds": 2.14,
+  "package_versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "biopython": "1.88",
+    "torch": "2.14.1",
+    "transformers": "5.20.2"
+  },
+  "source_code_sha256": "d53efbb7f64068e4b3f8081632336faefb1d0b75177966e7737db5694ca01b0d",
+  "diagnostic_addition": "Size-matched random control was added after the initial random/grouped run revealed an 86-protein connected component. Primary model/config were not retuned.",
+  "config": {
+    "condition": {
+      "temperature_c": 60,
+      "pH": 7.5,
+      "substrate": "cryPow",
+      "duration_h": 48
+    },
+    "model": "facebook/esm2_t12_35M_UR50D",
+    "identity_threshold": 0.6,
+    "n_folds": 5,
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      71
+    ],
+    "budgets": [
+      1,
+      3,
+      5
+    ],
+    "ridge_alphas": [
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "random_draws": 1000,
+    "primary_metric": "mean measured activity of top-5 candidates within each held-out fold",
+    "condition_rationale": "60 C directly addresses warm operation; pH 7.5 and cryPow are preselected neutral-ish pH and crystalline substrate. No model results used for condition choice.",
+    "notes": "ESM-2 is frozen. Grouped inner validation follows the outer grouping policy. Random and grouped outer folds may have different sizes; report size and normalize selection against same-fold random and oracle. Split variation is not a confidence interval."
+  },
+  "n_candidates": 159,
+  "n_groups": 30,
+  "largest_group": 86,
+  "group_sizes": [
+    86,
+    29,
+    6,
+    4,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "python": "3.12.14",
+  "embedding_metadata": {
+    "sequence_sha256": "ccbad3f46bc27cfef55727fa1616c6a14dd91f902fd650e0b6ae46a2fa1443f1",
+    "model_id": "facebook/esm2_t12_35M_UR50D",
+    "revision": "6fbf070e65b0b7291e7bbcd451118c216cff79d8",
+    "pooling": "Mean amino-acid tokens, excluding special tokens and padding",
+    "device": "cpu",
+    "batch_size": 8,
+    "shape": [
+      159,
+      480
+    ],
+    "wall_seconds": 5.05,
+    "training": "frozen pretrained model; no assay labels used",
+    "pretraining_overlap": "Homologs may have occurred in ESM pretraining; assay holdout is not pretraining decontamination."
+  },
+  "dataset_sha256": "cc61c442ac5ee7ee398deba2e2014f40ab0bc53e96675e6fccefc58e793b36eb",
+  "config_sha256": "b817f16a6ad34009e8d43df18c6bc9597efecd4a2fac1668a6aae4dce9d076ad",
+  "identity_sha256": "dc60c48a2f1c59a9a4522ce4237e03eda31b50629e13dfc7713a12355a3e5f6a",
+  "predictions_sha256": "09ec675ed2efd585f1a1dfb62c5861658f5cce4b32d30cdcc5141704a47754a1",
+  "n_outer_fits": 75,
+  "uncertainty": "Min/max across seed-level mean metrics describes split sensitivity, not independent trials or a confidence interval.",
+  "limitations": [
+    "One selected assay condition and non-random, ML-screened candidate population.",
+    "Sequence grouping uses full construct global identity; distant conserved domains may cross groups.",
+    "A large sequence component makes grouped folds imbalanced; matched random is a diagnostic with the same train/test sizes, not the same candidate pools.",
+    "Unknown overlap with protein-model pretraining; frozen embeddings do not eliminate pretraining exposure.",
+    "Missing activity assays and failed expression are excluded, limiting applicability to tested enzymes.",
+    "Outcome is 48-hour product release under this assay, not industrial recycling yield or mutation effect.",
+    "The original authors already studied ML prediction; this is an evaluation extension, not a novelty claim."
+  ]
+}

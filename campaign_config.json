@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "model_key": "esm2_35m",
+  "initial_size": 16,
+  "batch_size": 8,
+  "primary_budget": 40,
+  "max_budget": 64,
+  "n_seeds": 50,
+  "seed_start": 1001,
+  "bootstrap_members": 20,
+  "ridge_alpha": 100.0,
+  "ucb_beta": 1.0,
+  "diversity_weight": 0.25,
+  "hit_quantile": 0.9,
+  "target_hits": 5,
+  "strategies": ["Random", "Nearest sequence", "AI greedy", "AI explore"],
+  "scope": "Exploratory replay of an already inspected single-study dataset. Policies access only revealed labels. No new enzymes, blind external validation, calibrated uncertainty or industrial performance claim."
+}

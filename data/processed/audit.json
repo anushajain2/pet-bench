@@ -1,0 +1,35 @@
+{
+  "source_sha256": "700a78ab17348b0fdff81df5c8e49dc7e410c3bf59e0b69a2cc3f568ade30284",
+  "condition": {
+    "temperature_c": 60,
+    "pH": 7.5,
+    "substrate": "cryPow",
+    "duration_h": 48
+  },
+  "invalid_sequence_ids_excluded": [
+    "DP085"
+  ],
+  "source_protein_rows": 477,
+  "source_assay_rows": 3856,
+  "control_assay_rows_excluded": 520,
+  "selected_assay_rows": 236,
+  "selected_source_ids": 159,
+  "unique_sequences": 159,
+  "duplicate_sequences_collapsed": 0,
+  "untested_candidate_ids_at_this_condition": 316,
+  "single_measurement_sequences": 82,
+  "sequences_with_tm_1": 150,
+  "sequence_length_range": [
+    242,
+    517
+  ],
+  "target_units": "\u00b5mol aromatic products / mg enzyme after 48 h",
+  "dataset_sha256": "cc61c442ac5ee7ee398deba2e2014f40ab0bc53e96675e6fccefc58e793b36eb",
+  "rules": [
+    "Exclude blank, LCC-ICCG, SUMO-LCC-ICCG, RFP controls.",
+    "Use provided seq_aa construct sequences; no unverified tag or domain trimming. Exclude ambiguous amino-acid sequences.",
+    "Average replicates per ID, then average identical-sequence ID means.",
+    "Never label unmeasured assays or failed expression as zero activity.",
+    "Thermal measurements are descriptive only, never model inputs."
+  ]
+}

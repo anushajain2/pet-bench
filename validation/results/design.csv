@@ -1,0 +1,10 @@
+task,scenario,anchor,n_task,starting_group_size,search_pool_size,threshold,n_seeds,max_cross_identity
+cool_neutral,random_start,-1,211,211,195,46.0,50,
+cool_neutral,group_shift,0,211,50,161,46.0,50,0.5992779783393501
+cool_neutral,group_shift,8,211,94,117,46.0,50,0.5979899497487438
+cool_acidic,random_start,-1,159,159,143,10.100000000000009,50,
+cool_acidic,group_shift,0,159,26,133,10.100000000000009,50,0.5900383141762452
+cool_acidic,group_shift,8,159,88,71,10.100000000000009,50,0.5979899497487438
+warm_neutral,random_start,-1,159,159,143,20.000000000000043,50,
+warm_neutral,group_shift,0,159,32,127,20.000000000000043,50,0.5900383141762452
+warm_neutral,group_shift,8,159,86,73,20.000000000000043,50,0.5979899497487438

@@ -1,0 +1,4 @@
+{
+  "sequence_sha256": "ccbad3f46bc27cfef55727fa1616c6a14dd91f902fd650e0b6ae46a2fa1443f1",
+  "method": "global BLOSUM62; gap open -10; gap extension -0.5; identity = identical residues / all alignment columns"
+}

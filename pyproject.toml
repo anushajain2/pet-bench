@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pet-scout"
+version = "0.1.0"
+description = "Reproducible evaluation of protein representations for PET hydrolase selection"
+requires-python = ">=3.11,<3.14"
+dependencies = ["numpy", "pandas", "scipy", "scikit-learn", "biopython", "torch", "transformers", "streamlit", "plotly", "openpyxl", "requests", "matplotlib", "sentencepiece"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+pet-scout = "pet_scout.cli:main"
+pet-bench = "pet_scout.bench_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

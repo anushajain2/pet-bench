@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+.cache/
+.DS_Store
+work/
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key

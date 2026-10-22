@@ -1,0 +1,28 @@
+{
+  "model_id": "Rostlab/prot_t5_xl_half_uniref50-enc",
+  "label": "ProtT5-XL encoder",
+  "revision": "94a6abc029ae13029317b140b7424e012bf8dfbf",
+  "sequence_sha256": "b31553aaca52ab01e5ef6de85bbd6852a2a43dac18657b35891891a66a41f069",
+  "pooling_version": "amino-acid-mask-mean-v1",
+  "shape": [
+    211,
+    1024
+  ],
+  "embedding_sha256": "e69f9b9b73e232025c46c74d32a38d8456e0d50e9c4810a48e6ccf305cc27754",
+  "device": "cpu",
+  "dtype": "float32",
+  "batch_size": 1,
+  "threads": 4,
+  "loading_seconds": 797.004,
+  "inference_seconds": 99.97,
+  "cpu_seconds": 322.336,
+  "process_peak_rss_gib": 5.649,
+  "cuda_peak_allocated_gib": null,
+  "parameter_count": 1208141824,
+  "checkpoint_disk_bytes": 2752034665,
+  "created_utc": "2026-10-22T15:32:57.153595+00:00",
+  "hardware": "arm64",
+  "torch_version": "2.14.1",
+  "timing_note": "One measured run, not a hardware benchmark. Loading includes downloads/cache reads. Peak RSS covers the whole process. Models run in separate CLI processes.",
+  "pretraining_note": "Unknown overlap with pretraining sequences; no assay labels used in frozen embeddings."
+}

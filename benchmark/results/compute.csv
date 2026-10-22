@@ -1,0 +1,5 @@
+model,inference_seconds,loading_seconds,process_peak_rss_gib,embedding_dimensions,parameter_count,device,dtype,batch_size,checkpoint_disk_gib
+ESM-2 35M,6.852,0.678,1.035,480,33269521,cpu,float32,4,0.12666907999664545
+ESM-2 150M,20.804,76.134,1.624,640,147728601,cpu,float32,2,0.554377956315875
+ESM-2 650M,58.429,345.279,3.613,1280,649400981,cpu,float32,1,2.430293177254498
+ProtT5-XL encoder,99.97,797.004,5.649,1024,1208141824,cpu,float32,1,2.563032009638846

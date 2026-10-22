@@ -1,0 +1,15 @@
+{
+  "sequence_sha256": "ccbad3f46bc27cfef55727fa1616c6a14dd91f902fd650e0b6ae46a2fa1443f1",
+  "model_id": "facebook/esm2_t12_35M_UR50D",
+  "revision": "6fbf070e65b0b7291e7bbcd451118c216cff79d8",
+  "pooling": "Mean amino-acid tokens, excluding special tokens and padding",
+  "device": "cpu",
+  "batch_size": 8,
+  "shape": [
+    159,
+    480
+  ],
+  "wall_seconds": 5.05,
+  "training": "frozen pretrained model; no assay labels used",
+  "pretraining_overlap": "Homologs may have occurred in ESM pretraining; assay holdout is not pretraining decontamination."
+}

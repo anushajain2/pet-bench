@@ -1,0 +1,17 @@
+{
+  "config_sha256": "21881eaf5970aacf6c419927028577b653f927c6059228252667009ff08c58d6",
+  "source_sha256": "700a78ab17348b0fdff81df5c8e49dc7e410c3bf59e0b69a2cc3f568ade30284",
+  "catalog_sha256": "e69c12bd21733a8f9769ab9febdee7958bc19a8d6f72a1545fbc7ab25e6d8d10",
+  "split_sha256": "0fb5d71749edbcee6d3af92bc4fc155cb034103bbe82fb383326f2a5166d6459",
+  "identity_sha256": "cb86755e8bfec4f83df6831eadbef2d6d7cf192a4c5e129fe858041bd6281f52",
+  "task_sha256": {
+    "cool_neutral": "6018beb80fb7cc9b70005f428b00d534f0d59a42935b461b136cc620458826ee",
+    "cool_acidic": "af9cf800ff0a4e3309ebefc5dcdf3c26d88a34b4a92e0190aac922e5782cfd1a",
+    "warm_neutral": "2137004bd81d91fd46a817ef2e52cbfa5099d182f648150a1b58207639a0443d"
+  },
+  "n_unique_proteins": 211,
+  "n_sequence_groups": 36,
+  "grouping_scope": "Connected components computed on the union of all three tasks, without assay labels.",
+  "missingness": "Only observed assays used per task. Tasks have different populations; no zero imputation.",
+  "scope": "Retrospective single-study benchmark on natural enzyme constructs, not mutation-effect prediction or industrial validation. Warm neutral condition was explored in PET Scout before this extension; this is not a pristine prospective test."
+}

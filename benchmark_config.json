@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "tasks": [
+    {"id": "cool_neutral", "label": "40°C · pH 7.5", "temperature_c": 40, "pH": 7.5, "substrate": "cryPow", "duration_h": 48},
+    {"id": "cool_acidic", "label": "40°C · pH 4.5", "temperature_c": 40, "pH": 4.5, "substrate": "cryPow", "duration_h": 48},
+    {"id": "warm_neutral", "label": "60°C · pH 7.5", "temperature_c": 60, "pH": 7.5, "substrate": "cryPow", "duration_h": 48}
+  ],
+  "models": [
+    {"key": "esm2_35m", "label": "ESM-2 35M", "model_id": "facebook/esm2_t12_35M_UR50D", "family": "esm", "batch_size": 4},
+    {"key": "esm2_150m", "label": "ESM-2 150M", "model_id": "facebook/esm2_t30_150M_UR50D", "family": "esm", "batch_size": 2},
+    {"key": "esm2_650m", "label": "ESM-2 650M", "model_id": "facebook/esm2_t33_650M_UR50D", "family": "esm", "batch_size": 1},
+    {"key": "prott5", "label": "ProtT5-XL encoder", "model_id": "Rostlab/prot_t5_xl_half_uniref50-enc", "family": "t5", "batch_size": 1}
+  ],
+  "identity_threshold": 0.6,
+  "regimes": ["random", "matched", "grouped"],
+  "n_folds": 5,
+  "seeds": [11, 23, 37, 51, 71],
+  "training_sizes": [16, 32, 64, "all"],
+  "selection_budgets": [1, 3, 5],
+  "primary_selection_budget": 5,
+  "ridge_alphas": [10.0, 100.0, 1000.0],
+  "inner_folds": 3,
+  "embedding_policy": "Frozen final-layer mean of amino-acid tokens only; float32 on CPU; one representation per sequence reused across tasks. No fine-tuning.",
+  "training_size_policy": "A numeric size is included only if every outer fold across every regime and seed in that task has enough training examples. Subsets are nested and label-independent; all methods receive identical subsets.",
+  "aggregation": "Equal weight per held-out fold, then per partition seed; separate tables for every task, regime and training size. No universal pooled winner.",
+  "scope": "Retrospective single-study benchmark on natural enzyme constructs, not mutation-effect prediction or industrial validation. Warm neutral condition was explored in PET Scout before this extension; this is not a pristine prospective test."
+}
