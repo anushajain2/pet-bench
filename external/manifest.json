@@ -1,0 +1,28 @@
+{
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12228687/supplementaryFiles",
+  "source_doi": "10.1038/s41467-025-61599-z",
+  "source_license": "CC BY 4.0",
+  "input_and_output_sha256": {
+    "external_protocol.json": "7c2f40e67e593da75362721bdd4a1846b3f92a937de4121a7e714a83656b2924",
+    "benchmark/data_manifest.json": "a73c4b354b3e12af9b5078324bb983f1be8cb70c43c8df8f87969e6eca36b015",
+    "benchmark/embeddings/esm2_35m.npz": "48d9aae803587dad321771b58694fe82b9c1ca21e4005f07f14d6c108efd2441",
+    "benchmark/embeddings/esm2_35m.json": "2a5d399439713565b374cf6871ed34cb2bee777eb7a1aa4913ae20fee5569405",
+    "src/pet_scout/external.py": "1041b5ab6745251536b0dfb07e0e11e433ba92fdba54b08bcc7c0cdd856181c0",
+    "src/pet_scout/inference.py": "e5fe6955552ccd6e3e7ef0ef258b5ab9ae48390366abf9890d70b75ff714b812",
+    "src/pet_scout/campaign.py": "b782e48486a391318e4f6c018f0195d75054dbf007851c9cab1cb7f041b09aa7",
+    "src/pet_scout/features.py": "79da3f202d65b14befec73687962fc090c69a2b404b6676d854be903f8a4b10a",
+    "external/raw/41467_2025_61599_MOESM3_ESM.xlsx": "5fb0907db73c22bf7ae7d35a2a9db00cb232c5a69f3a25b0e7c871d7b6f7fa1e",
+    "external/raw/41467_2025_61599_MOESM7_ESM.xlsx": "574467653691a09e5bf93ddb18ee23c7e78d9fed5dd97fe29e732c7679c5181f",
+    "external/translated_sequences.csv": "ce33a08f20b53fee8e95f2bdab8f97bb14c8efc901cf5a390778f85fa7378890",
+    "external/predictions.csv": "a6f87fc9adf67f059f866004150c3f214aa7267bd7929ff0322c814c37a39942",
+    "external/metrics.csv": "0911e9a0e6711d1ee39a8740aaae351c1e3cd45b22713ebbc730b4b3af3ac6f2",
+    "external/measurements.csv": "56a629129e551aa3a63b7213ced7151e43d7f69fa8b4f77c6ca414139132317e",
+    "external/sequence_audit.csv": "f7613ec2834bbef1630f70eed0f197e6459d24709cf4c5681de3be062e8fe7e4",
+    "external/embeddings.npz": "23834b9c27eed146f11d7ad978e0cb30b3df522f72ada7e783f512d97ab79cf8",
+    "external/embeddings.json": "c5cf1ca9ed69102194ed84cfe402203634e3abdd386b59f5022a7716ee5163be"
+  },
+  "n_measured_candidates": 14,
+  "n_excluded_overlap": 1,
+  "n_below_60pct_identity": 11,
+  "interpretation": "No external-label tuning, model selection, assay-unit calibration, MAE across studies, or activity pooling across temperatures. All methods use the same training labels. Ties broken by sample ID. Uncertainty intervals from random subsets describe screening variability, not confidence in generalization. Pretraining sequence overlap is unknown. One external study and 14 selected candidates cannot establish broad transfer."
+}

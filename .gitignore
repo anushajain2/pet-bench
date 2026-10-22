@@ -11,3 +11,5 @@ work/
 .streamlit/secrets.toml
 *.pem
 *.key
+uploads/
+user_runs/

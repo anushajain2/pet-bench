@@ -3,6 +3,20 @@
 Reproducible AI-guided screening of PET-degrading enzymes, with model benchmarks,
 sequential experiment selection, robustness tests and an interactive dashboard.
 
+**New: does the model transfer to a second lab—and can you rank your own candidates?**
+The independent-study test excludes overlapping constructs and evaluates both
+the full eligible panel and candidates below 60% training-sequence identity.
+Upload your own CSV or FASTA plus measurements to propose a batch using local
+ESM-2 inference, with a nearest-sequence comparison and downloadable provenance.
+
+- Open **External validation** and **Rank candidates** in the dashboard.
+- Read [transfer findings](external/FINDINGS.md) and the
+  [protocol, source audit and upload guide](TRANSFER_AND_RANKING.md).
+- Try [the public example](examples/ranking_demo.csv); no model download required.
+- Reproduce: `.venv/bin/python -m pet_scout.external`.
+- This is retrospective enzyme prioritization, not a newly designed enzyme or a
+  prospectively validated lab result.
+
 ```sh
 git clone https://github.com/anushajain2/pet-bench.git
 cd pet-bench
@@ -14,8 +28,8 @@ python3.12 -m venv .venv
 
 Published measurements, prepared features and completed results are included;
 viewing the dashboard does not require downloading model weights or paid APIs.
-Code is MIT-licensed; experimental data and derived measurement tables retain
-their [CC BY-NC 4.0 terms](DATA_LICENSE.md).
+Code is MIT-licensed; training data retain CC BY-NC 4.0 and the independent study
+retains CC BY 4.0. See [data attribution and terms](DATA_LICENSE.md).
 
 **Portfolio case study: when does AI help select PET-degrading enzymes under a
 limited experimental budget?** The final extension tests narrow starting groups,

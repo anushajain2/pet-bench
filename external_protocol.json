@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "status": "Analysis rules fixed before calculating model performance; retrospective, not preregistered or blinded",
+  "source_doi": "10.1038/s41467-025-61599-z",
+  "source_license": "CC BY 4.0",
+  "source_archive": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12228687/supplementaryFiles",
+  "sequence_file": "41467_2025_61599_MOESM3_ESM.xlsx",
+  "assay_file": "41467_2025_61599_MOESM7_ESM.xlsx",
+  "sheet": "Figure 2c",
+  "pairs": [
+    {"training_task": "cool_neutral", "external_temperature_c": 40, "role": "primary"},
+    {"training_task": "warm_neutral", "external_temperature_c": 60, "role": "secondary"}
+  ],
+  "external_assay": "Amorphous PET film, 50 mM glycine-NaOH pH 9, 72 h; mean of three measured TPA + MHET concentrations (micromolar).",
+  "sequence_rule": "Require CATATG start and TAAGCGGCCGC end; remove the first CAT (NdeI flanking bases), terminal TAA stop and NotI site; translate remaining complete CDS, including start methionine. No internal stops. Vector-derived His tag is unavailable and not invented.",
+  "cohort": "All APET candidates with three finite nonnegative measurements in Figure 2c at the specified temperature. Exclude IsPETase control. Missing measurements are never zeros. These are 14 candidates preselected by expression and pNPB activity, not an unbiased discovery panel.",
+  "overlap_exclusion": "Exclude external sequences identical to, or exact substrings/superstrings of, any training-catalog sequence when shorter/longer length >= 0.9. Audit against all 211 catalog constructs before either task.",
+  "similarity_sensitivity": "Also evaluate external candidates whose maximum global identity to the entire training catalog is < 0.6, only if at least 6 remain. This is a similarity filter, not proof of independent evolutionary families.",
+  "methods": ["ESM-2 35M", "Composition", "Nearest sequence"],
+  "bootstrap_members": 20,
+  "ridge_alpha": 100.0,
+  "seed": 2026,
+  "top_k": 3,
+  "metrics": ["Spearman rank correlation", "Mean measured external activity among top 3 selections", "Exact random-selection mean and 5th/95th percentiles over all triples", "Fraction of random triples scoring at least as high as selected triple"],
+  "restrictions": "No external-label tuning, model selection, assay-unit calibration, MAE across studies, or activity pooling across temperatures. All methods use the same training labels. Ties broken by sample ID. Uncertainty intervals from random subsets describe screening variability, not confidence in generalization. Pretraining sequence overlap is unknown. One external study and 14 selected candidates cannot establish broad transfer."
+}

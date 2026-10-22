@@ -1,0 +1,6 @@
+{
+  "sequence_sha256": "faae98e5d80d59d56e4b9e426630837a91ce0348445863a5d705b03e00b90c22",
+  "model_id": "facebook/esm2_t12_35M_UR50D",
+  "revision": "6fbf070e65b0b7291e7bbcd451118c216cff79d8",
+  "sha256": "23834b9c27eed146f11d7ad978e0cb30b3df522f72ada7e783f512d97ab79cf8"
+}

@@ -15,3 +15,20 @@ derived measurement tables are attributed noncommercial research materials.
 Changes: condition filtering, replicate averaging, identical-sequence collapsing,
 and addition of model predictions, similarity measures, and evaluation metadata.
 The authors do not endorse this project. No new biological measurements were made.
+
+## Independent external study
+
+Wu B, Zhong B, Zheng L, et al. (2025). Harnessing protein language model for
+structure-based discovery of highly efficient and robust PET hydrolases.
+Nature Communications 16, 6211. https://doi.org/10.1038/s41467-025-61599-z
+
+Supplementary Data 1 (`41467_2025_61599_MOESM3_ESM.xlsx`) and Source Data
+(`41467_2025_61599_MOESM7_ESM.xlsx`) are included in `external/raw/`.
+Archive: https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12228687/supplementaryFiles
+License: **CC BY 4.0**, https://creativecommons.org/licenses/by/4.0/ .
+Changes: translation of documented coding inserts, extraction/averaging of PET
+assay replicates, construct-overlap filtering, similarity annotations and predictions.
+The authors do not endorse PETBench. External measurements retain CC BY 4.0;
+predictions trained on the original study do not remove that study's noncommercial
+data restrictions. Example upload measurements derive from the original study
+and retain its CC BY-NC 4.0 terms.
